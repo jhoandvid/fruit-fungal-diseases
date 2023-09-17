@@ -1,0 +1,4 @@
+.env
+/mongo
+/venv
+/src/tensor
