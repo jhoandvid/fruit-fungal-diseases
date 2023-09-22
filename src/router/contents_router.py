@@ -22,6 +22,13 @@ def search_contents(request: Request, search_content: ConsultContentInformation)
     return contents
 
 
+@contents_router.post('/search/nlCloud/')
+def search_contents(request: Request, search_content: ConsultContentInformation):
+    user_id = ""
+    contents = contents_service.search_info_embedding_by_nlCloud(user_id, search_content)
+    return contents
+
+
 @contents_router.put('/update/{content_id}')
 async def update_contents(request: Request, data_content: UpdateContents, content_id: str,
                           file: UploadFile | None = None):

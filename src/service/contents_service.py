@@ -1,7 +1,10 @@
 import io
 import os
+import nlpcloud
+import re
 from fastapi import UploadFile, status, HTTPException
 from PyPDF2 import PdfReader
+
 import tiktoken
 
 from langchain.text_splitter import CharacterTextSplitter
@@ -16,12 +19,30 @@ from src.service.response_question_service import ResponseQuestionService
 from src.entity.contents import ContentsEntity, ConsultContentInformation, UpdateContents
 
 from src.utils.environment.env import setting
+from src.database.repository.fruit_fungal_diseases_repository import FruitFungalDiaseaseRepository
 
 contents_repository = ContentsRepository()
 response_question_service = ResponseQuestionService()
+fruits_fungal_disease_repository = FruitFungalDiaseaseRepository()
 
 
 class ContentsService:
+
+    def extract_array(self, text: str):
+
+        pattern = r'\[.*?\]'
+
+        matches = re.findall(pattern, text)
+        if len(matches) > 0:
+            first_match = matches[0]
+
+            try:
+                result = eval(first_match)
+                return result
+            except SyntaxError:
+                return []
+        else:
+            return []
 
     async def _extract_text_from_pdf(self, pdf_file: UploadFile):
         pdf_content = await pdf_file.read()
@@ -56,6 +77,56 @@ class ContentsService:
         content = contents_repository.create_contents(document_contents)
         return content
 
+    def search_info_embedding_by_nlCloud(self, user_id, search: ConsultContentInformation):
+
+        contents_db = contents_repository.search_info_contents(user_id, search)
+
+        client = nlpcloud.Client("finetuned-llama-2-70b", "5bb1ec4f6a2e9d62027048f1c879eefdee2a5f51", gpu=True)
+
+        response = client.question(
+
+            question="""Eres un experto en biologia y sabes mucho sobre información de enfermedades de planta, segun el contexto que te envio quiero que clasifiques cada una de las enfermedades y las que tenga mayor similitud las proporcione en un arreglo, de esta manera ['Anthracnose', 'Apple Rot'], todas las coincidencias en un unico arrego, Limitate solo al contexto que te doy nada mas!. 
+             ¿{}?.""".format(search.question),
+            context=contents_db["information"]
+        )
+
+
+        print(response)
+        diseases = self.extract_array(response["answer"])
+
+        print(diseases)
+
+        response_question = {
+            "user_id": user_id,
+            "content_id": search.content_id,
+            "response": response["answer"],
+            "category": search.category,
+            "fruit": search.fruit,
+            "prompt": search.question,
+            "answer_correct": True
+        }
+        response_question_service.create_response_question(response_question)
+
+
+        consult = {
+            'scientific_name': {
+                '$in': [re.compile(re.escape(disease), re.IGNORECASE) for disease in diseases]
+            }
+        }
+
+        result = fruits_fungal_disease_repository.find_fruit_disease_by_consult(consult)
+
+
+        if result is None:
+            return []
+        serialized_response_fruit = []
+        for result_fruit in result:
+            result_fruit['_id'] = str(result_fruit['_id'])
+            serialized_response_fruit.append(result_fruit)
+        return serialized_response_fruit
+
+        return {"fruit_disease": result}
+
     def search_info_embedding_by_OpeIA(self, user_id, search: ConsultContentInformation):
         os.environ['OPENAI_API_KEY'] = setting.OPEN_KEY
 
@@ -69,10 +140,12 @@ class ContentsService:
         contents = OpenAIEmbeddings()
         knowledge_base = FAISS.from_texts(contents_db["information"], contents)
         docs = knowledge_base.similarity_search(search.question)
+        print(docs)
         llm = OpenAI()
         chain = load_qa_chain(llm, chain_type="stuff")
         with get_openai_callback() as cb:
-            response = chain.run(input_documents=docs, question=search.question)
+            response = chain.run(input_documents=docs,
+                                 question=f"Solo necesito el nombre del hongo, si no lo encuentras en la información que tienes regresa un 'No se'; ${search.question} ")
 
         response_question_gtp = {
             "user_id": user_id,

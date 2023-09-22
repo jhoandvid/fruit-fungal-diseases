@@ -29,10 +29,6 @@ J
 src/tensor/diagnostico.txt,2\0\209408711d843d9ff92a7e9e6af0020a9ecb3ac4
 E
 src/tensor/nlcloud.py,a\0\a03586e3d5de29b8f12b06c54e2eabffee687bae
-C
-docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
-@
-requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
 F
 src/router/__init__.py,9\4\94a1bd28ff67c86ed8676e49d03fcdfb6fa4f217
 O
@@ -41,25 +37,12 @@ V
 &src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
 \
 ,venv/Lib/site-packages/starlette/requests.py,d\6\d64570f7d5b949dd788aa6426effea3fbcdad5d8
-g
-7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
-X
-(src/service/response_question_service.py,c\5\c5d55fc43e8321e2c1e9c3238672d4b94265ed98
-M
-src/router/contents_router.py,2\8\285a5067d4b3c34850ab513c998447a5656f833d
 L
 src/utils/environment/env.py,4\e\4e3e8e1bdf9d0947304e1935d088d3abd997d324
-O
-src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
-^
-.src/database/repository/contents_repository.py,0\b\0b5a7d9d8620f8f4be73007c7ad726e682753b90
-;
-src/main.py,d\1\d1a7263fc38a6779482c06cdc0d4654c6182bffc
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 F
 src/entity/__init__.py,9\4\942ecf48c7c96cc93defcc1009276bba7a08a0f1
-F
-src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
-O
-src/entity/question_response.py,8\0\8091b80b1c0ff613f8d852843888bedb53358aef
-Z
-*src/router/fruit_fungal_diseases_router.py,f\2\f2e7e896b318ae8576a06ca72197ed1bd1be0fd2

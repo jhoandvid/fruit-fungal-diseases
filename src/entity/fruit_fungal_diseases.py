@@ -37,5 +37,6 @@ class FruitFungalDisease(FruitFungalDiseaseBase):
             }
         }
     is_active: bool = Field(default=True)
+    user_id: str = Field(default="")
     created_at: datetime = Field(default=datetime.now())
     updated_at: datetime = Field(default=datetime.now())
