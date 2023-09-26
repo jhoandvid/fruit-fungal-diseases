@@ -1,8 +1,6 @@
 
 >
 test_main.http,c\b\cbdc4133ce020dc49f7a0e5509c9dff899a94f38
-Q
-!src/database/config/collection.py,5\2\52df265da4c3cf900007524a83d28d926cc41e63
 D
 src/tensor/chat-2.py,b\3\b331269f2fa960a9b75e98f9e5cbddaaf7ea7ba9
 N
@@ -31,14 +29,8 @@ E
 src/tensor/nlcloud.py,a\0\a03586e3d5de29b8f12b06c54e2eabffee687bae
 F
 src/router/__init__.py,9\4\94a1bd28ff67c86ed8676e49d03fcdfb6fa4f217
-O
-src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
-V
-&src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
 \
 ,venv/Lib/site-packages/starlette/requests.py,d\6\d64570f7d5b949dd788aa6426effea3fbcdad5d8
-L
-src/utils/environment/env.py,4\e\4e3e8e1bdf9d0947304e1935d088d3abd997d324
 4
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 :
@@ -46,3 +38,27 @@ L
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 F
 src/entity/__init__.py,9\4\942ecf48c7c96cc93defcc1009276bba7a08a0f1
+\
+,src/service/fruit_fungal_diseases_service.py,0\b\0bdabd2923a53cef7b3551ce0b841a3b07c770a3
+X
+(src/service/response_question_service.py,c\5\c5d55fc43e8321e2c1e9c3238672d4b94265ed98
+g
+7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
+F
+src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
+O
+src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
+O
+src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
+Q
+!src/database/config/collection.py,5\2\52df265da4c3cf900007524a83d28d926cc41e63
+k
+;src/database/repository/fruit_fungal_diseases_repository.py,d\c\dc566e87655f130e8c3cfac573d9bcf60a6e7f3b
+V
+&src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
+^
+.src/database/repository/contents_repository.py,0\b\0b5a7d9d8620f8f4be73007c7ad726e682753b90
+L
+src/utils/environment/env.py,4\e\4e3e8e1bdf9d0947304e1935d088d3abd997d324
+I
+src/entity/auth_entity.py,e\1\e168727fb0ec3feaa9dd68fcc16159b04490bd80
