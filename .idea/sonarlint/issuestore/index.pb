@@ -58,7 +58,17 @@ V
 &src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
 ^
 .src/database/repository/contents_repository.py,0\b\0b5a7d9d8620f8f4be73007c7ad726e682753b90
+;
+src/main.py,d\1\d1a7263fc38a6779482c06cdc0d4654c6182bffc
+@
+requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
+Z
+*src/router/fruit_fungal_diseases_router.py,f\2\f2e7e896b318ae8576a06ca72197ed1bd1be0fd2
 L
 src/utils/environment/env.py,4\e\4e3e8e1bdf9d0947304e1935d088d3abd997d324
-I
-src/entity/auth_entity.py,e\1\e168727fb0ec3feaa9dd68fcc16159b04490bd80
+M
+src/utils/bycript_password.py,a\0\a065112f1a1487787cd3d0fb50087d52de3bcf29
+F
+src/utils/validRole.py,c\2\c26ddfd29d7516c1dca0d9a914a48517cd2e4296
+M
+src/router/contents_router.py,2\8\285a5067d4b3c34850ab513c998447a5656f833d

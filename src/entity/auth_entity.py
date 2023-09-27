@@ -4,7 +4,7 @@ from datetime import datetime
 
 class UserBase(BaseModel):
     email: EmailStr
-    password: str = Field(min_length=8, max_length=16, description="Password of user")
+    password: str = Field(min_length=6, max_length=24, description="Password of user")
 
 
 class UserLogin(UserBase):

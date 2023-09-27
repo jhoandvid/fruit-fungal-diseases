@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from src.entity.auth_entity import UserLogin
 from src.database.repository.auth_repository import AuthRepository
 from src.utils.bycript_password import verify_password, get_hashed_password
-from src.utils.jwt_manager import create_token
+from src.utils.jwt_manager import create_token, validate_token
 from src.entity.auth_entity import User
 
 auth_repository = AuthRepository()
@@ -19,18 +19,56 @@ class AuthService:
             )
         user.password = get_hashed_password(user.password)
         new_user = auth_repository.create_user(user)
-        del new_user['password']
-        token = create_token({"_id": new_user['password']})
-        return {"user": new_user, "token": token}
+        token = create_token({"_id": new_user['_id']})
+
+        response_data = {
+            "id": new_user["_id"],
+            "email": new_user["email"],
+            "name": new_user["name"],
+            "role": new_user["role"],
+            "createdAt": new_user["createdAt"],
+            "token": token
+        }
+        return response_data
 
     def login(self, user: UserLogin):
         user_db = auth_repository.find_one_user(user.email)
 
         if user_db is None or not verify_password(user.password, user_db["password"]):
             raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
+                status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Incorrect email or password"
             )
-        del user_db['password']
+
         token = create_token({"_id": user_db["_id"]})
-        return {"user": user_db, "token": token}
+        response_data = {
+            "id": user_db["_id"],
+            "email": user_db["email"],
+            "name": user_db["name"],
+            "role": user_db["role"],
+            "createdAt": user_db["createdAt"],
+            "token": token
+        }
+        return response_data
+
+    def find_one_user_by_id(self, user_id):
+        print(user_id)
+        user = auth_repository.find_one_user_by_id(user_id)
+        print(user)
+        if user is None:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Credencials invalid")
+        return user
+
+    def validate_token(self, token: str):
+        data = validate_token(token)
+        user = self.find_one_user_by_id(data['_id'])
+        token = create_token({"_id": user['_id']})
+        response_data = {
+            "id": user["_id"],
+            "email": user["email"],
+            "name": user["name"],
+            "role": user["role"],
+            "createdAt": user["createdAt"],
+            "token": token
+        }
+        return response_data

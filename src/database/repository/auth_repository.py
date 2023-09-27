@@ -1,7 +1,7 @@
 from src.entity.auth_entity import User
 from src.database.config.collection import get_collection
 from fastapi import HTTPException, status
-
+from bson import ObjectId
 user_collection = get_collection('users')
 
 
@@ -35,7 +35,7 @@ class AuthRepository:
 
     def find_one_user_by_id(self, user_id):
         try:
-            user_db = user_collection.find_one({"_id": user_id})
+            user_db = user_collection.find_one({"_id": ObjectId(user_id)})
             if user_db:
                 user_db['_id'] = str(user_db['_id'])
             return user_db
