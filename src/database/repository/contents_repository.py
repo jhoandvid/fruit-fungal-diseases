@@ -27,8 +27,7 @@ class ContentsRepository:
     def search_info_contents(self, user_id, search: ConsultContentInformation):
         try:
 
-            collection_result = contents_collection.find_one({"_id": ObjectId(search.content_id),
-                                                              "category": search.category, "user_id": user_id})
+            collection_result = contents_collection.find_one({"fruit": search.fruit})
             return collection_result
         except Exception as e:
             print(f"error in search: {e}")

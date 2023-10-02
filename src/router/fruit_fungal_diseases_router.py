@@ -16,3 +16,12 @@ async def create_fruit_diseases(fruit_diseases: FruitFungalDisease):
 @fruit_fungal_diseases_router.get("/diseases")
 async def get_fruit_diseases():
     return fruit_fungal_diseases_service.find_fruit_funga_disease()
+
+
+@fruit_fungal_diseases_router.get("/search")
+async def name(query: str = ''):
+    return fruit_fungal_diseases_service.find_disease_by_name(query)
+
+@fruit_fungal_diseases_router.get("/diseases/{id}")
+async def get_disease_by_id(id: str):
+    return fruit_fungal_diseases_service.find_fruit_deseases_by_id(id)

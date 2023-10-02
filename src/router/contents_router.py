@@ -15,16 +15,17 @@ async def read_contents(request: Request, data_contents: ContentsEntity = Body(.
     return contents
 
 
-@contents_router.post('/search/')
+@contents_router.post('/search')
 def search_contents(request: Request, search_content: ConsultContentInformation):
     user_id = ""
     contents = contents_service.search_info_embedding_by_OpeIA(user_id, search_content)
     return contents
 
 
-@contents_router.post('/search/nlCloud/')
+@contents_router.post('/search/nlCloud')
 def search_contents(request: Request, search_content: ConsultContentInformation):
     user_id = ""
+    print(search_content)
     contents = contents_service.search_info_embedding_by_nlCloud(user_id, search_content)
     return contents
 

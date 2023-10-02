@@ -1,5 +1,5 @@
 from jwt import encode, decode
-from jwt.exceptions import InvalidSignatureError, ExpiredSignatureError
+from jwt.exceptions import InvalidSignatureError, ExpiredSignatureError, InvalidTokenError
 from datetime import datetime, timedelta
 from fastapi import HTTPException, status
 from src.utils.environment.env import setting
@@ -14,6 +14,7 @@ def create_token(data: dict):
 
 def validate_token(token: str) -> dict:
     try:
+        print(token)
         data: dict = decode(token, key=setting.JWT_SECRET_KEY, algorithms=setting.ALGORITHM)
         return data
     except ExpiredSignatureError as e:
@@ -22,3 +23,5 @@ def validate_token(token: str) -> dict:
     except InvalidSignatureError as e:
         print(f"Error de firma no válida: {e}")
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Usuario no autorizado")
+    except InvalidTokenError as e:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token no valido")

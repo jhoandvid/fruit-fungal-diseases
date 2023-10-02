@@ -29,9 +29,7 @@ class ResponseQuestionService:
     def create_response_question(self, data):
         question_response = QuestionResponse()
         question_response.user_id = data['user_id']
-        question_response.content_id = data['content_id']
         question_response.prompt = data['prompt']
         question_response.response = data['response']
         question_response.fruit = data['fruit']
-        question_response.category = data['category']
         response_question_repository.create_responses_questions(question_response)

@@ -59,9 +59,8 @@ class AuthService:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Credencials invalid")
         return user
 
-    def validate_token(self, token: str):
-        data = validate_token(token)
-        user = self.find_one_user_by_id(data['_id'])
+    def validate_token(self, user_id: str):
+        user = self.find_one_user_by_id(user_id)
         token = create_token({"_id": user['_id']})
         response_data = {
             "id": user["_id"],

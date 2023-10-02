@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Depends
 from src.entity.auth_entity import User, UserLogin
 from src.service.auth_service import AuthService
+from src.utils.validRole import ValidRole
 
 auth_router = APIRouter()
 
@@ -17,6 +18,8 @@ def login(user: UserLogin):
     return auth_service.login(user)
 
 
-@auth_router.post("/user/validate", tags=["Auth"], description="User login")
-def login(token: str):
-    return auth_service.validate_token(token)
+@auth_router.get("/user/validate", tags=["Auth"], description="User login",
+                 dependencies=[Depends(ValidRole(['user', 'admin']))])
+def login(request: Request):
+    user_id = request.state.user_id
+    return auth_service.validate_token(user_id)

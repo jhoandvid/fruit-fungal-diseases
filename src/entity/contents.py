@@ -32,9 +32,7 @@ class ContentsEntity(ContentsEntityBase):
 
 
 class ConsultContentInformation(BaseModel):
-    content_id: str
     question: str
-    category: str
     fruit: str
 
 

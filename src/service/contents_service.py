@@ -19,11 +19,11 @@ from src.service.response_question_service import ResponseQuestionService
 from src.entity.contents import ContentsEntity, ConsultContentInformation, UpdateContents
 
 from src.utils.environment.env import setting
-from src.database.repository.fruit_fungal_diseases_repository import FruitFungalDiaseaseRepository
+from src.database.repository.fruit_fungal_diseases_repository import FruitFungalDiaseasesRepository
 
 contents_repository = ContentsRepository()
 response_question_service = ResponseQuestionService()
-fruits_fungal_disease_repository = FruitFungalDiaseaseRepository()
+fruits_fungal_disease_repository = FruitFungalDiaseasesRepository()
 
 
 class ContentsService:
@@ -85,7 +85,7 @@ class ContentsService:
 
         response = client.question(
 
-            question="""Eres un experto en biologia y sabes mucho sobre información de enfermedades de planta, segun el contexto que te envio quiero que clasifiques cada una de las enfermedades y las que tenga mayor similitud las proporcione en un arreglo, de esta manera ['Anthracnose', 'Apple Rot'], todas las coincidencias en un unico arrego, Limitate solo al contexto que te doy nada mas!. 
+            question="""Como experto en biología y enfermedades de plantas, por favor, clasifica las dos enfermedades de plantas más comunes que afectan a las. Proporciona sus nombres exactos en un arreglo como este: ['Enfermedad 1', 'Enfermedad 2']. Limita tu respuesta solo a las enfermedades que te proporcione en el contexto. 
              ¿{}?.""".format(search.question),
             context=contents_db["information"]
         )
@@ -98,9 +98,7 @@ class ContentsService:
 
         response_question = {
             "user_id": user_id,
-            "content_id": search.content_id,
             "response": response["answer"],
-            "category": search.category,
             "fruit": search.fruit,
             "prompt": search.question,
             "answer_correct": True
