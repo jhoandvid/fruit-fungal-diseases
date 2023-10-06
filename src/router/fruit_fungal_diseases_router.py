@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from src.entity.fruit_fungal_diseases import FruitFungalDisease
 from src.service.fruit_fungal_diseases_service import FruitFungalDiseasesService
+from fastapi import Request
 
 fruit_fungal_diseases_router = APIRouter()
 
@@ -8,8 +9,8 @@ fruit_fungal_diseases_service = FruitFungalDiseasesService()
 
 
 @fruit_fungal_diseases_router.post("/diseases")
-async def create_fruit_diseases(fruit_diseases: FruitFungalDisease):
-    user_id = ""
+async def create_fruit_diseases(request: Request, fruit_diseases: FruitFungalDisease):
+    user_id = request.state.user_id
     return fruit_fungal_diseases_service.create_fruit_fungal_disease(user_id, fruit_diseases)
 
 

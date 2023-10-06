@@ -64,3 +64,23 @@ F
 src/utils/validRole.py,c\2\c26ddfd29d7516c1dca0d9a914a48517cd2e4296
 g
 7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
+V
+&src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
+F
+src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
+O
+src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
+k
+;src/database/repository/fruit_fungal_diseases_repository.py,d\c\dc566e87655f130e8c3cfac573d9bcf60a6e7f3b
+X
+(src/service/response_question_service.py,c\5\c5d55fc43e8321e2c1e9c3238672d4b94265ed98
+\
+,src/service/fruit_fungal_diseases_service.py,0\b\0bdabd2923a53cef7b3551ce0b841a3b07c770a3
+M
+src/router/contents_router.py,2\8\285a5067d4b3c34850ab513c998447a5656f833d
+^
+.src/database/repository/contents_repository.py,0\b\0b5a7d9d8620f8f4be73007c7ad726e682753b90
+Z
+*src/router/fruit_fungal_diseases_router.py,f\2\f2e7e896b318ae8576a06ca72197ed1bd1be0fd2
+I
+src/router/auth_router.py,d\5\d5f5c33cd746118098c0d3359f94c733eb0cb672

@@ -4,7 +4,8 @@ import nlpcloud
 import re
 from fastapi import UploadFile, status, HTTPException
 from PyPDF2 import PdfReader
-
+from langchain.chat_models import ChatOpenAI
+import json
 import tiktoken
 
 from langchain.text_splitter import CharacterTextSplitter
@@ -94,7 +95,6 @@ class ContentsService:
         print(response)
         diseases = self.extract_array(response["answer"])
 
-        print(diseases)
 
         response_question = {
             "user_id": user_id,
@@ -138,25 +138,47 @@ class ContentsService:
         contents = OpenAIEmbeddings()
         knowledge_base = FAISS.from_texts(contents_db["information"], contents)
         docs = knowledge_base.similarity_search(search.question)
-        print(docs)
-        llm = OpenAI()
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
         chain = load_qa_chain(llm, chain_type="stuff")
         with get_openai_callback() as cb:
             response = chain.run(input_documents=docs,
-                                 question=f"Solo necesito el nombre del hongo, si no lo encuentras en la información que tienes regresa un 'No se'; ${search.question} ")
+                                 question=f"Como experto en biología y enfermedades de plantas, por favor, clasifica las dos enfermedades de plantas más comunes que afectan a las. Proporciona sus nombres exactos un array de esta manera: ['Enfermedad 1', 'Enfermedad 2'] nada mas!. Limita tu respuesta solo a las enfermedades que te proporcione en el contexto. ; ${search.question}, Damela en un array y solo los nombres nada mas, de esta manera: ['enfermedad1', 'enfermedad2' ]!! ")
+
 
         response_question_gtp = {
             "user_id": user_id,
-            "content_id": search.content_id,
             "response": response,
-            "category": search.category,
             "fruit": search.fruit,
             "prompt": search.question,
             "answer_correct": True
         }
 
+
+
+
         response_question_service.create_response_question(response_question_gtp)
-        return {"response": response, "transaction_info": cb}
+
+        diseases = eval(response)
+        print(diseases)
+    # regex_patterns = [ for disease in diseases]
+
+        consult = {
+            'scientific_name': {
+                '$in': [re.compile(re.escape(disease), re.IGNORECASE) for disease in diseases]
+            }
+        }
+
+        result = fruits_fungal_disease_repository.find_fruit_disease_by_consult(consult)
+
+        if result is None:
+            return []
+        serialized_response_fruit = []
+        for result_fruit in result:
+            result_fruit['_id'] = str(result_fruit['_id'])
+            serialized_response_fruit.append(result_fruit)
+        return serialized_response_fruit
+
+        return {"fruit_disease": result}
 
     def find_one_content_by_content_id(self, content_id, user_id):
         content_db = contents_repository.find_contents_by_Id(content_id, user_id)

@@ -51,12 +51,12 @@ class ContentsRepository:
 
     def update_contents(self, content_id: str, user_id, data_content: UpdateContents):
         try:
-
+            update_data = data_content.dict(exclude_none=True)
             if data_content.information is None:
                 del data_content.information
 
             content_db = contents_collection.update_one({"user_id": user_id, "_id": ObjectId(content_id)},
-                                                        {"$set": data_content.dict()})
+                                                        {"$set": update_data})
             print(content_db.modified_count)
             if content_db.modified_count == 1:
                 updated_item = self.find_contents_by_Id(content_id, user_id)

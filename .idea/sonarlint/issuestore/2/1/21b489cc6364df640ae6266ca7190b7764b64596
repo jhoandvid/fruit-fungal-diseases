@@ -1,0 +1,7 @@
+
+]python:S5857""9Replace this use of a reluctant quantifier with "[^\]]*".(˜Æ‚Šıÿÿÿÿ8óåÉÀ¯1
+‚python:S100Q"dRename method "search_info_embedding_by_nlCloud" to match the regular expression ^[a-z_][a-z0-9_]*$.(Öè•‚8ôåÉÀ¯1
+fpython:S1763~"GDelete this unreachable code or refactor the code to make it reachable.(«êï’8ôåÉÀ¯1
+python:S100€"bRename method "search_info_embedding_by_OpeIA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹Áóõ8ôåÉÀ¯1
+Kpython:S1481"&Remove the unused local variable "cb".(Ñ×‘Ûùÿÿÿÿ8ôåÉÀ¯1
+gpython:S1763µ"GDelete this unreachable code or refactor the code to make it reachable.(«êï’8ôåÉÀ¯1

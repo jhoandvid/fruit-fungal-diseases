@@ -32,6 +32,7 @@ class FruitFungalDiaseasesRepository:
 
     def find_fruit_disease_by_consult(self, consulta):
         try:
+            print(consulta)
             response_fruit_disease = collection_fruit_diseases.find(consulta)
             return response_fruit_disease
         except HTTPException as e:

@@ -1,4 +1,5 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
+from typing import Optional, List
 from datetime import datetime
 import json
 
@@ -37,10 +38,10 @@ class ConsultContentInformation(BaseModel):
 
 
 class UpdateContents(BaseModel):
-    title: str | None
-    category: str | None
-    fruit: str | None
-    information: list | None
+    title: Optional[str]
+    category: Optional[str]
+    fruit: Optional[str]
+    information: Optional[List]
 
     class Config:
         schema_extra = {
@@ -59,4 +60,10 @@ class UpdateContents(BaseModel):
     def validate_to_json(cls, value):
         if isinstance(value, str):
             return cls(**json.loads(value))
+        return value
+
+    @validator("information", pre=True, always=True)
+    def validate_information(cls, value):
+        if value is None:
+            return []
         return value
