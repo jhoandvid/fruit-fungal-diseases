@@ -46,23 +46,13 @@ Z
 *src/router/fruit_fungal_diseases_router.py,f\2\f2e7e896b318ae8576a06ca72197ed1bd1be0fd2
 g
 7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
-O
-src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
 Z
 *src/database/repository/auth_repository.py,e\f\ef73b8336a62e13f01e9068333ea45cc0e71f03e
-Q
-!src/database/config/collection.py,5\2\52df265da4c3cf900007524a83d28d926cc41e63
 F
 src/router/__init__.py,9\4\94a1bd28ff67c86ed8676e49d03fcdfb6fa4f217
 I
 src/router/auth_router.py,d\5\d5f5c33cd746118098c0d3359f94c733eb0cb672
-;
-src/main.py,d\1\d1a7263fc38a6779482c06cdc0d4654c6182bffc
 M
 src/router/contents_router.py,2\8\285a5067d4b3c34850ab513c998447a5656f833d
 F
 src/utils/validRole.py,c\2\c26ddfd29d7516c1dca0d9a914a48517cd2e4296
-G
-src/utils/jwt_bearer.py,5\e\5e9908c1c524fd326c22eb5077a6b5537ce74d2d
-H
-src/utils/jwt_manager.py,d\d\dd4f9bad1453296b3e90514e9e8d38b61ada84cd
