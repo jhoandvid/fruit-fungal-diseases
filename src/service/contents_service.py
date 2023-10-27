@@ -4,6 +4,7 @@ import nlpcloud
 import re
 from fastapi import UploadFile, status, HTTPException
 from PyPDF2 import PdfReader
+
 from langchain.chat_models import ChatOpenAI
 import json
 import tiktoken
