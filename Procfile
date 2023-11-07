@@ -1,1 +1,1 @@
-web: uvicorn src.main:app --proxy-headers --host=0.0.0.0 --port=8000
+web: uvicorn src.main:app --proxy-headers --host=127.0.0.1 --port=${PORT}

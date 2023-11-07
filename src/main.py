@@ -1,9 +1,12 @@
+import uvicorn
 from fastapi import FastAPI
 from src.router import contents_router, response_question_router, fruit_fungal_diseases_router, auth_router
 from fastapi.middleware.cors import CORSMiddleware
 
 from fastapi import Depends
 from src.utils.validRole import ValidRole
+
+from src.utils.environment.env import setting
 
 app = FastAPI()
 
@@ -27,5 +30,9 @@ app.include_router(response_question_router.response_question_router, prefix="/q
                    dependencies=[Depends(ValidRole(['user', 'admin']))])
 app.include_router(fruit_fungal_diseases_router.fruit_fungal_diseases_router, prefix="/fruit", tags=["fruitsDiseases"],
                    dependencies=[Depends(ValidRole(['user', 'admin']))])
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=setting.PORT)
+
 
 

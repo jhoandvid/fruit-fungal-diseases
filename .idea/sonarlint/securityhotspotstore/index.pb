@@ -50,7 +50,5 @@ O
 src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
-Q
-!src/database/config/collection.py,5\2\52df265da4c3cf900007524a83d28d926cc41e63
 F
 src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac

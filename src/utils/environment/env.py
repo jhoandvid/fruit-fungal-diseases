@@ -10,6 +10,7 @@ class Setting:
     OPEN_KEY = os.getenv("OPEN_KEY")
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
     ALGORITHM = os.getenv("ALGORITHM")
+    PORT = os.getenv("PORT")
 
 
 setting = Setting()
