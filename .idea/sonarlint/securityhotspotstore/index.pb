@@ -1,6 +1,4 @@
 
->
-test_main.http,c\b\cbdc4133ce020dc49f7a0e5509c9dff899a94f38
 D
 src/tensor/chat-2.py,b\3\b331269f2fa960a9b75e98f9e5cbddaaf7ea7ba9
 N
@@ -46,9 +44,5 @@ C
 docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
 O
 src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
-O
-src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
-@
-requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
 F
 src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
