@@ -32,7 +32,7 @@ app.include_router(fruit_fungal_diseases_router.fruit_fungal_diseases_router, pr
                    dependencies=[Depends(ValidRole(['user', 'admin']))])
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=setting.PORT)
+    uvicorn.run(app, host="0.0.0.0", port=setting.PORT)
 
 
 
