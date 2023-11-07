@@ -36,23 +36,21 @@ E
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 F
 src/entity/__init__.py,9\4\942ecf48c7c96cc93defcc1009276bba7a08a0f1
-I
-src/entity/auth_entity.py,e\1\e168727fb0ec3feaa9dd68fcc16159b04490bd80
-V
-&src/router/response_question_router.py,5\d\5dbebb02c88049a951f404434d030d7877d4be53
 X
 (src/service/response_question_service.py,c\5\c5d55fc43e8321e2c1e9c3238672d4b94265ed98
-Z
-*src/router/fruit_fungal_diseases_router.py,f\2\f2e7e896b318ae8576a06ca72197ed1bd1be0fd2
-Z
-*src/database/repository/auth_repository.py,e\f\ef73b8336a62e13f01e9068333ea45cc0e71f03e
 g
 7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
 F
 src/router/__init__.py,9\4\94a1bd28ff67c86ed8676e49d03fcdfb6fa4f217
-I
-src/router/auth_router.py,d\5\d5f5c33cd746118098c0d3359f94c733eb0cb672
-M
-src/router/contents_router.py,2\8\285a5067d4b3c34850ab513c998447a5656f833d
+C
+docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
+O
+src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
+O
+src/database/config/database.py,4\9\49119565e8d1eaa52a29399ef4d9f627cf2dbad6
+@
+requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
+Q
+!src/database/config/collection.py,5\2\52df265da4c3cf900007524a83d28d926cc41e63
 F
-src/utils/validRole.py,c\2\c26ddfd29d7516c1dca0d9a914a48517cd2e4296
+src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
