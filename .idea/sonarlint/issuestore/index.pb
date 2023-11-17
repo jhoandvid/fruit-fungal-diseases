@@ -1,32 +1,4 @@
 
-D
-src/tensor/chat-2.py,b\3\b331269f2fa960a9b75e98f9e5cbddaaf7ea7ba9
-N
-src/tensor/modelo entrenado.py,8\0\80a42524add93071bc4e274bb2d6e9be57207139
-c
-3src/tensor/model_gpt_enfermedades/added_tokens.json,8\0\808d7c3596bfbf4c390f4796d2ddc5772f11497b
-]
--src/tensor/model_gpt_enfermedades/config.json,d\7\d799575c110f6c5b0cada4bc32b9c168e09b20c2
-h
-8src/tensor/model_gpt_enfermedades/generation_config.json,1\5\15cb06ee91be0a19fec6598f55cc3e2f1b64c605
-\
-,src/tensor/model_gpt_enfermedades/merges.txt,1\d\1ddde6156216f17b4c9e06b3727acfdf8181c359
-c
-3src/tensor/model_gpt_enfermedades/pytorch_model.bin,0\6\066c0e5e27e67f21bfb42bd84adb352b1eb349c8
-i
-9src/tensor/model_gpt_enfermedades/special_tokens_map.json,5\1\51192429847383e0c36913409948de4557fd926b
-`
-0src/tensor/model_gpt_enfermedades/tokenizer.json,a\8\a86b278bb7975c3d6db5f28ff661dfaf19060b6c
-g
-7src/tensor/model_gpt_enfermedades/tokenizer_config.json,a\6\a6d1a2b437d1b3d8cc917b37dd378a8ab330c8cd
-\
-,src/tensor/model_gpt_enfermedades/vocab.json,a\d\aded01b48da6da3c331dfb31963fa380ebad99ac
-J
-src/tensor/diagnostico.txt,2\0\209408711d843d9ff92a7e9e6af0020a9ecb3ac4
-E
-src/tensor/nlcloud.py,a\0\a03586e3d5de29b8f12b06c54e2eabffee687bae
-\
-,venv/Lib/site-packages/starlette/requests.py,d\6\d64570f7d5b949dd788aa6426effea3fbcdad5d8
 4
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 :
@@ -36,13 +8,15 @@ F
 src/entity/__init__.py,9\4\942ecf48c7c96cc93defcc1009276bba7a08a0f1
 X
 (src/service/response_question_service.py,c\5\c5d55fc43e8321e2c1e9c3238672d4b94265ed98
-g
-7src/database/repository/response_question_repository.py,c\5\c504eea0096048773c7b234649d9321c7d4a6207
 F
 src/router/__init__.py,9\4\94a1bd28ff67c86ed8676e49d03fcdfb6fa4f217
-O
-src/service/contents_service.py,2\1\21b489cc6364df640ae6266ca7190b7764b64596
 C
 docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
+I
+src/entity/auth_entity.py,e\1\e168727fb0ec3feaa9dd68fcc16159b04490bd80
 F
-src/entity/contents.py,d\e\deb5ecbd3ab090e6d38709e06038c968b1dc92ac
+src/utils/validRole.py,c\2\c26ddfd29d7516c1dca0d9a914a48517cd2e4296
+L
+src/utils/environment/env.py,4\e\4e3e8e1bdf9d0947304e1935d088d3abd997d324
+>
+test_main.http,c\b\cbdc4133ce020dc49f7a0e5509c9dff899a94f38
